@@ -14,11 +14,16 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-// Definir la URI de conexión directamente
-const mongoUri = 'mongodb+srv://jhonicm:1234@clustertest.e64rl.mongodb.net/Prueba_Jc';
-mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Conectado a MongoDB'))
-  .catch(err => console.error('Error de conexión a MongoDB:', err));
+
+mongoose.connect('mongodb+srv://jhonicm:1234@clustertest.e64rl.mongodb.net/Prueba_Jc?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Conectado a MongoDB Atlas');
+}).catch(err => {
+    console.error('Error de conexión:', err);
+});
+
 
 app.use('/api/bonos', bonoRoutes);
 
