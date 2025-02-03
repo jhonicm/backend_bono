@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getBonos, createBono, updateBono, deleteBono, calcularBono } = require('../controllers/bonoController');
+const bonoController = require('../controllers/bonoController');
 
-router.get('/', getBonos);
-router.post('/', createBono);
-router.put('/:id', updateBono);
-router.delete('/:id', deleteBono);
-router.post('/calcular', calcularBono);
+router.get('/', bonoController.getBonos);
+router.post('/', bonoController.createBono);
+router.put('/:id', bonoController.updateBono);
+router.delete('/:id', bonoController.deleteBono);
+router.post('/calcular', bonoController.calcularBonoHandler);
 
 module.exports = router;

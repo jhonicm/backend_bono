@@ -28,7 +28,6 @@ const calcularBono = (antiguedad, sueldo) => {
         bonoMayor: Math.max(bonoAntiguedad, bonoSueldo)
     };
 };
-
 const getBonos = async (req, res) => {
     try {
         const bonos = await Bono.find();
@@ -97,5 +96,5 @@ module.exports = {
     createBono,
     updateBono,
     deleteBono,
-    calcularBono: calcularBonoHandler
+    calcularBonoHandler
 };
